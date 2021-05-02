@@ -278,20 +278,6 @@ var domUpdate_score;
 var domUpdate_nodes;
 var domUpdate_ordering;
 
-function UpdateDOMStats() {
-		var scoreText = "Score: " + (domUpdate_score/100).toFixed(2);
-		if(Math.abs(domUpdate_score) > MATE-MAXDEPTH) {
-			scoreText = "Score: " + "Mate In " + (MATE - Math.abs(domUpdate_score)) + " moves";
-		}
-
-		//console.log("UpdateDOMStats depth:" + domUpdate_depth + " score:" + domUpdate_score + " nodes:" + domUpdate_nodes);
-		$("#OrderingOut").text("Ordering: " + domUpdate_ordering + "%");
-		$("#DepthOut").text("Depth: " + domUpdate_depth);
-		$("#ScoreOut").text(scoreText);
-		$("#NodesOut").text("Nodes: " + domUpdate_nodes);
-		$("#TimeOut").text("Time: " + (($.now()-srch_start)/1000).toFixed(1) + "s");
-}
-
 function SearchPosition() {
 	
 	var bestMove = NOMOVE;
@@ -329,7 +315,7 @@ function SearchPosition() {
 		if(currentDepth!=1) {
 			line += (" Ordering:" + ((srch_fhf/srch_fh)*100).toFixed(2) + "%");
 		}
-		console.log(line);
+		//console.log(line);
 		
 		domUpdate_depth = currentDepth;
 		domUpdate_move = bestMove;
@@ -339,7 +325,6 @@ function SearchPosition() {
 	}	
 		
 	$("#BestOut").text("BestMove: " + PrMove(bestMove));
-	UpdateDOMStats();
 	srch_best = bestMove;
 	srch_thinking = BOOL.FALSE;
 	

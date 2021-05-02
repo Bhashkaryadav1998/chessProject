@@ -1,13 +1,23 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, json
 import os
+
+from werkzeug.utils import secure_filename
+
 import tensorflow_chessbot as chess
 app = Flask(__name__)
-
+UPLOAD_FOLDER = 'static/img/uploads/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html');
+    return render_template('index.html')
 
-@app.route('/test')
+
+@app.route('/upload',methods=['POST'])
 def chessImage():
-    return chess.main("static/img/chess2.png");
+    file = request.files['file']
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    fen=chess.main('static/img/uploads/'+filename)
+    print(fen)
+    return json.dumps(fen)

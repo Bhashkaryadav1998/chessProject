@@ -265,22 +265,22 @@ function PrintBoard() {
 		console.log(line);
 	}
 	
-	console.log("");
+	//console.log("");
 	var line = "   ";
 	for(file = FILES.FILE_A; file <= FILES.FILE_H; file++) {
 		line += (' ' + String.fromCharCode('a'.charCodeAt() + file) + ' ');	
 	}
-	console.log(line);
-	console.log("side:" + SideChar[brd_side] );
-	console.log("enPas:" + brd_enPas);
+	//console.log(line);
+	//console.log("side:" + SideChar[brd_side] );
+	//console.log("enPas:" + brd_enPas);
 	line = "";	
 	if(brd_castlePerm & CASTLEBIT.WKCA) line += 'K';
 	if(brd_castlePerm & CASTLEBIT.WQCA) line += 'Q';
 	if(brd_castlePerm & CASTLEBIT.BKCA) line += 'k';
 	if(brd_castlePerm & CASTLEBIT.BQCA) line += 'q';
 	
-	console.log("castle:" + line);
-	console.log("key:" + brd_posKey.toString(16));
+	//console.log("castle:" + line);
+	//console.log("key:" + brd_posKey.toString(16));
 	//PrintPceLists();
 }
 
@@ -490,10 +490,10 @@ function PrintSqAttacked() {
 			else piece = "-";
 			line += (" " + piece + " ");
 		}
-		console.log(line);
+		//console.log(line);
 	}
 	
-	console.log("");
+	//console.log("");
 }
 
 

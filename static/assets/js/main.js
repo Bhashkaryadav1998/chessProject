@@ -9,26 +9,6 @@ $(function() {
 	NewGame();
 	newGameAjax();
 
-	$.ajax({
-		url : "bookXml.xml",
-		cache : false,
-		dataType: "xml",
-		success: function (xml) {
-			console.log("Read success");
-			$(xml).find('line').each(function() {
-				var trimmed = $(this).text();
-				trimmed = $.trim(trimmed);
-				brd_bookLines.push(trimmed);
-			});
-			GameController.BookLoaded = BOOL.TRUE;
-			$('#LoadingBook').remove();
-			console.log("Book length: " + brd_bookLines.length + " entries");
-
-			for(var i = 0; i <brd_bookLines.length; ++i) {
-			//	console.log('Array: ' + brd_bookLines[i]);
-			}
-		}
-	});
 	
 	
 });

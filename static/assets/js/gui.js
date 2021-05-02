@@ -11,17 +11,17 @@ function MIRROR120(sq) {
 	return FR2SQ(file,rank);
 }
 
-$("#SetFen").click(function () {
-	var fenStr = $("#fenIn").val();	
+function setFromFen(fen,side) {
+	var fenStr = fen;
 	ParseFen(fenStr);
 	PrintBoard();		
 	SetInitialBoardPieces();	
-	GameController.PlayerSide = brd_side;	
+	GameController.PlayerSide = side;
 	CheckAndSet();	
 	EvalPosition();	
 	//PerftTest(5);
 	newGameAjax();	 
-});
+}
 
 function CheckResult() {
 
@@ -132,7 +132,7 @@ function MakeUserMove() {
 		DeselectSq(UserMove.from);
 		DeselectSq(UserMove.to);
 		
-		console.log("Parsed:" + parsed);
+		//console.log("Parsed:" + parsed);
 		
 		if(parsed != NOMOVE) {
 			MakeMove(parsed);
@@ -324,7 +324,7 @@ $("#SearchButton").click(function () {
 
 $("#FlipButton").click(function () {	
 	GameController.BoardFlipped ^= 1;
-	console.log("Flipped:" + GameController.BoardFlipped);
+	//console.log("Flipped:" + GameController.BoardFlipped);
 	SetInitialBoardPieces();
 });
 
@@ -343,7 +343,7 @@ $("#NewGameButton").click(function () {
 });
 
 function newGameAjax() {
-	console.log('new Game Ajax');
+	//console.log('new Game Ajax');
 	/*$.ajax({
 		url : "insertNewGame.php",
 		cache: false
