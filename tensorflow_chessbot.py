@@ -146,7 +146,7 @@ class ChessboardPredictor(object):
 ###########################################################
 # MAIN CLI
 
-def main(args):
+def main(args,flip):
 
   img = helper_image_loading.loadImageFromPath(args)
 
@@ -169,7 +169,9 @@ def main(args):
   predictor = ChessboardPredictor()
   fen, tile_certainties = predictor.getPrediction(tiles)
   predictor.close()
-  short_fen = unflipFEN(fen)
+  if(flip=='y'):
+    short_fen=unflipFEN(fen)
+  else: short_fen=fen
   short_fen=shortenFEN(short_fen)
   # Use the worst case certainty as our final uncertainty score
   certainty = tile_certainties.min()

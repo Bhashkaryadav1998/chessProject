@@ -11,7 +11,7 @@ function MIRROR120(sq) {
 	return FR2SQ(file,rank);
 }
 
-function setFromFen(fen,side) {
+function setFromFen(fen,side=0) {
 	var fenStr = fen;
 	ParseFen(fenStr);
 	PrintBoard();		
@@ -54,8 +54,7 @@ function CheckResult() {
 		TakeMove();
 		break;
     }
-    
-    $("#currentFenSpan").text(BoardToFen()); 
+
 	
 	if(found != 0) return BOOL.FALSE;
 	var InCheck = SqAttacked(brd_pList[PCEINDEX(Kings[brd_side],0)], brd_side^1);
@@ -111,7 +110,6 @@ function CheckAndSet() {
 		GameController.GameSaved = BOOL.TRUE; // save the game here
 	}
 	//var fenStr = BoardToFen();
-	 $("#currentFenSpan").text(BoardToFen());
 }
 
 function PreSearch() {

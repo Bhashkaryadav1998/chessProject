@@ -16,8 +16,8 @@ def hello_world():
 @app.route('/upload',methods=['POST'])
 def chessImage():
     file = request.files['file']
+    flip=request.form['flip']
     filename = secure_filename(file.filename)
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    fen=chess.main('static/img/uploads/'+filename)
-    print(fen)
+    fen=chess.main('static/img/uploads/'+filename,flip)
     return json.dumps(fen)
