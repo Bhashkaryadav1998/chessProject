@@ -1,6 +1,5 @@
 beautifulsoup4>=4.6.3,<5
 lxml
 Pillow
-tensorflow
 requests
 flask
