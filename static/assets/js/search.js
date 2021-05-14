@@ -291,10 +291,7 @@ function SearchPosition() {
 		bestMove = BookMove();
 	
 		if(bestMove != NOMOVE) {
-			$("#OrderingOut").text("Ordering:");
-			$("#DepthOut").text("Depth: ");
-			$("#ScoreOut").text("Score:");
-			$("#NodesOut").text("Nodes:");
+
 			$("#TimeOut").text("Time: 0s");
 			$("#BestOut").text("BestMove: " + PrMove(bestMove) + '(Book)');
 			srch_best = bestMove;
@@ -323,8 +320,7 @@ function SearchPosition() {
 		domUpdate_nodes = srch_nodes;
 		domUpdate_ordering = ((srch_fhf/srch_fh)*100).toFixed(2);
 	}	
-		
-	$("#BestOut").text("BestMove: " + PrMove(bestMove));
+
 	srch_best = bestMove;
 	srch_thinking = BOOL.FALSE;
 	
