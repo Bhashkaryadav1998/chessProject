@@ -7,7 +7,8 @@ imageName=0
     {
     stage('Test'){
     steps{
-    sh 'python3 test.py'
+    sh 'conda activate'
+    sh 'python test.py'
     }
     }
     stage('Docker build to Image'){
