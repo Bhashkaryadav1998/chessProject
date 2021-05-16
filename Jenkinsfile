@@ -9,7 +9,6 @@ imageName=0
     steps{
     sh """
           PATH=/home/bhashkar/anaconda3/condabin/conda
-          which conda
           conda activate
           python test.py
        """
