@@ -62,7 +62,6 @@ function MakeMove(move) {
     var side = brd_side;	
 	
 	brd_history[brd_hisPly].posKey = brd_posKey;
-	
 	if( (move & MFLAGEP) != 0) {
         if(side == COLOURS.WHITE) {
             ClearPiece(to-10);
