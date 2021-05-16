@@ -7,8 +7,11 @@ imageName=0
     {
     stage('Test'){
     steps{
-    sh 'conda activate'
-    sh 'python test.py'
+    sh """
+          PATH=/home/bhashkar/anaconda3/bin/conda
+          conda activate
+          python test.py
+       """
     }
     }
     stage('Docker build to Image'){
