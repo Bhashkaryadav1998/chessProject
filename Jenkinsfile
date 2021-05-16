@@ -7,7 +7,7 @@ imageName=0
     {
     stage('Test'){
     steps{
-    sh 'python test.py'
+    sh 'python3 test.py'
     }
     }
     stage('Docker build to Image'){
