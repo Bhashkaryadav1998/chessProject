@@ -8,9 +8,7 @@ imageName=0
     stage('Test'){
     steps{
     sh """
-          PATH=/home/bhashkar/anaconda3/condabin/conda
-          conda activate
-          python test.py
+          python3 test.py
        """
     }
     }

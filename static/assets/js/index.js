@@ -49,3 +49,4 @@ document.getElementById('analyze').onclick= async (e) => {
     $('#chess').removeClass('d-md-flex');
 
 }
+

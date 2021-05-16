@@ -1,4 +1,5 @@
 var UserMove = {};
+let w,h;
 UserMove.from = SQUARES.NO_SQ;
 UserMove.to = SQUARES.NO_SQ;
 
@@ -22,7 +23,11 @@ function setFromFen(fen,side=0) {
 	//PerftTest(5);
 	newGameAjax();	 
 }
+function player(){
+    w=$('#white').children("option:selected").val();
+    b=$('#black').children("option:selected").val();
 
+}
 function CheckResult() {
 
     if (brd_fiftyMove > 100) {
@@ -136,6 +141,7 @@ function MakeUserMove() {
 			MakeMove(parsed);
 			MoveGUIPiece(parsed);
 			CheckAndSet();
+
 			PreSearch();
 		}
 		
