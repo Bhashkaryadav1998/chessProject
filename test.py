@@ -1,7 +1,4 @@
 import unittest
-from io import StringIO
-
-import requests
 
 from app import app
 import json
