@@ -1,5 +1,5 @@
 var UserMove = {};
-let w,h;
+let opp='c';
 UserMove.from = SQUARES.NO_SQ;
 UserMove.to = SQUARES.NO_SQ;
 
@@ -24,8 +24,7 @@ function setFromFen(fen,side=0) {
 	newGameAjax();	 
 }
 function player(){
-    w=$('#white').children("option:selected").val();
-    b=$('#black').children("option:selected").val();
+    opp=$('#opp').children("option:selected").val();
 
 }
 function CheckResult() {
@@ -142,7 +141,8 @@ function MakeUserMove() {
 			MoveGUIPiece(parsed);
 			CheckAndSet();
 
-			PreSearch();
+			if(opp!='h')PreSearch();
+			else GameController.PlayerSide=brd_side;
 		}
 		
 		UserMove.from = SQUARES.NO_SQ;
