@@ -5,6 +5,11 @@ imageName=0
   agent any
   stages
     {
+    stage('Test'){
+    steps{
+    sh 'python test.py'
+    }
+    }
     stage('Docker build to Image'){
     steps{
     script{

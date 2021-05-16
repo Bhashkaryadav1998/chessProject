@@ -10,7 +10,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 host = 'localhost'
 app.logger.info('Server started')
 
-
 @app.route('/')
 def hello_world():
     app.logger.info('index.html loaded')
